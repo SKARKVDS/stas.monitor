@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.0.2" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.0.2" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.2" />
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.2" />
+        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.2" />
+        <PackageReference Include="Serilog" Version="3.1.0-dev-02078" />
+        <PackageReference Include="Serilog.Sinks.Console" Version="5.0.0-dev-00923" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <ProjectReference Include="..\Stas.Monitor.Presentations\Stas.Monitor.Presentations.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Compile Update="MeasuresView.axaml.cs">
+        <DependentUpon>MeasuresView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+</Project>

@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="1000" Height="650"
+        WindowStartupLocation="CenterScreen"
+        x:Class="Stas.Monitor.Views.MainWindow"
+        Title="Stas.Monitor.Views"
+        CanResize="False">
+    <StackPanel>
+        <Expander Header="Options d'affichage" Width="1000">
+            <Grid RowDefinitions="25,70,40" ColumnDefinitions="200,200,*">
+                <Label Grid.Column="0" Grid.Row="0" Content="Thermomètres disponibles :" />
+                <ComboBox Grid.Column="0" Grid.Row="1" Name="Thermometers" SelectionChanged="OnChangedThermometer"/>
+                <Label Grid.Column="1" Grid.Row="0" Content="Séries disponibles :"/>
+                <ScrollViewer Grid.Column="1" Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
+                    <WrapPanel Name="AvailableView" Orientation="Vertical"/>
+                </ScrollViewer>
+                <Label Grid.Column="2" Grid.Row="0" Content="Durée :" />
+                <ComboBox Grid.Column="2" Grid.Row="1" Name="During" SelectedIndex="1" SelectionChanged="OnChangedDuring">
+                    <ComboBoxItem Content="30 secondes" />
+                    <ComboBoxItem Content="1 minute"/>
+                    <ComboBoxItem Content="5 minutes" />
+                </ComboBox>
+            </Grid>
+        </Expander>
+        <Label Name="Message"/>
+        <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" Width="1000" Height="500">
+            <WrapPanel ItemHeight="450" ItemWidth="450" Orientation="Horizontal" Name="MeasureAndAlertView" HorizontalAlignment="Center"/>
+        </ScrollViewer>
+    </StackPanel>
+</Window>

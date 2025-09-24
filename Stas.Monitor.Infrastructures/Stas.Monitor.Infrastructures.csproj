@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Stas.Monitor.Domains\Stas.Monitor.Domains.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Be.HenNi.Analyzers" Version="1.0.3" />
+      <PackageReference Include="CommandLineParser.Net" Version="3.2.0.601" />
+      <PackageReference Include="IDisposableAnalyzers" Version="4.0.7">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.7.0" />
+      <PackageReference Include="MySql.Data" Version="8.2.0" />
+      <PackageReference Include="NSubstitute" Version="5.1.0" />
+      <PackageReference Include="Serilog" Version="3.1.0-dev-02078" />
+      <PackageReference Include="Serilog.Sinks.Console" Version="5.0.0-dev-00923" />
+      <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.507">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <AdditionalFiles Include="..\CodeMetricsConfig.txt">
+            <Link>CodeMetricsConfig.txt</Link>
+        </AdditionalFiles>
+    </ItemGroup>
+
+</Project>
